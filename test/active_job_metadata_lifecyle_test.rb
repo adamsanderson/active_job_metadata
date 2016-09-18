@@ -1,9 +1,9 @@
 require 'test_helper'
 
-class ActiveJobMetadataLifecyleTest < ActiveSupport::TestCase
+class ActiveJobMetadataLifecycleTest < ActiveSupport::TestCase
   
   class TestJob < ActiveJob::Base
-    include ActiveJobMetadata::Lifecyle
+    include ActiveJobMetadata::Lifecycle
     
     attr_accessor :status_during_perform
     
@@ -22,21 +22,21 @@ class ActiveJobMetadataLifecyleTest < ActiveSupport::TestCase
     job = TestJob.new
     job.enqueue
     
-    assert_equal ActiveJobMetadata::Lifecyle::ENQUEUED, job.status
+    assert_equal ActiveJobMetadata::Lifecycle::ENQUEUED, job.status
   end
   
   def test_tracks_running
     job = TestJob.new
     job.perform_now
     
-    assert_equal ActiveJobMetadata::Lifecyle::RUNNING, job.status_during_perform
+    assert_equal ActiveJobMetadata::Lifecycle::RUNNING, job.status_during_perform
   end
   
   def test_tracks_completion
     job = TestJob.new
     job.perform_now
     
-    assert_equal ActiveJobMetadata::Lifecyle::DONE, job.status
+    assert_equal ActiveJobMetadata::Lifecycle::DONE, job.status
   end
   
 end

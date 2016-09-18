@@ -1,4 +1,4 @@
-module ActiveJobMetadata::Lifecyle
+module ActiveJobMetadata::Lifecycle
   ENQUEUED = "enqueued"
   RUNNING  = "running"
   DONE     = "done"

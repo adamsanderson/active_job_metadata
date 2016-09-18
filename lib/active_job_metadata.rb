@@ -37,3 +37,4 @@ end
 require "active_job_metadata/metadata"
 require "active_job_metadata/lifecycle"
 require "active_job_metadata/timing"
+require "active_job_metadata/all"

@@ -1,5 +1,4 @@
 require 'test_helper'
-require 'active_support/testing/time_helpers'
 
 class ActiveJobMetadataTimingTest < ActiveSupport::TestCase
   
