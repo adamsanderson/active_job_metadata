@@ -10,8 +10,8 @@ Gem::Specification.new do |spec|
   spec.email         = ["netghost@gmail.com"]
 
   spec.summary       = "Store status and metadata for ActiveJobs"
-  spec.description   = "Store metadata such as job status, percent complete, etc. for ActiveJobs"
-  spec.homepage      = "https://github.com/adamsanderson/activejob_metadata"
+  spec.description   = "ActiveJobMetadata lets you store and retrieve metadata associated with ActiveJob jobs regardless of the queue processing library you use."
+  spec.homepage      = "https://github.com/adamsanderson/active_job_metadata"
   
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   spec.bindir        = "exe"
