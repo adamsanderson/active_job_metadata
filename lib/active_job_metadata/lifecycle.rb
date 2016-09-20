@@ -1,3 +1,5 @@
+# Use Lifecyle to track the current status of your job.
+# 
 module ActiveJobMetadata::Lifecycle
   ENQUEUED = "enqueued"
   RUNNING  = "running"
