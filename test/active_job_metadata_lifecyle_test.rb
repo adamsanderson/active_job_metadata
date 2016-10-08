@@ -12,6 +12,17 @@ class ActiveJobMetadataLifecycleTest < ActiveSupport::TestCase
     end
   end
   
+  class FailingJob < ActiveJob::Base
+    include ActiveJobMetadata::Lifecycle
+    rescue_from "StandardError" do 
+      # no-op
+    end
+    
+    def perform
+      raise StandardError
+    end
+  end
+  
   def test_returns_nil_before_enqueued
     job = TestJob.new
     
@@ -37,6 +48,13 @@ class ActiveJobMetadataLifecycleTest < ActiveSupport::TestCase
     job.perform_now
     
     assert_equal ActiveJobMetadata::Lifecycle::DONE, job.status
+  end
+  
+  def test_tracks_failure
+    job = FailingJob.new
+    job.perform_now
+    
+    assert_equal ActiveJobMetadata::Lifecycle::FAILED, job.status
   end
   
 end
